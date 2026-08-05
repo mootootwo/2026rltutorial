@@ -7,7 +7,7 @@ The tutorial is written for Python 3 and the TCOD library, but this project adap
 I am a hobbyist and this project is pure bumbling about.
 
 ## Devlogs
-- [Part-0](https://mootootwo.github.io/2026rltutorial/part-0) : Setting Up
+- [Part-0](https://mootootwo.github.io/2026rltutorial/part-0/devblog) : Setting Up
 
 ### Unstarted
 >- [Part-1](https://mootootwo.github.io/2026rltutorial/part-1) : Drawing the ‘@’ symbol and moving it around
