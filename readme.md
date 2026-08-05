@@ -25,4 +25,4 @@ I am a hobbyist and this project is pure bumbling about.
 >- [Part-13](https://mootootwo.github.io/2026rltutorial/part-13) : Gearing up 
 
 ## Demos
-- [Part-0](https://mootootwo.github.io/release_link) : Links to release in repo; no web demo for Part-0.
+- [Part-0](https://mootootwo.github.io/2026rltutorial/part-0/demo.html)

@@ -14,7 +14,7 @@ To setup my environment, I have:
 
 Instead of using a tilesheet as described in the tutorial, I will be using a font and drawing text on canvas.  I know from prior experience that this is extremely inefficient and also leads to uncontrolable rendering issues (for example, antialiasing that can not be disabled on all browsers) -- but it will be fine for this tutorial.
 
-The [last](https://github.com/mootootwo/lox) time I attempted this tutorial, I placed each part of the tutorial into its own subdirectory.  This time, I will attempt to preserve each part of the tutorial with a release and tag. 
+I have attempted to use either or both of release tags and/or brances for each part of the tutorial.  Unfortuneatly, GitPages does not seem to support this, and I would be unable to host point-in-time demos of each different part of the tutorial.  So I have gone with a simple sub-folder layout for each part of the tutorial so they can all be hosted at the same time.
 
 ### Language
 Javascript, currently V8 15.0.1240245
@@ -24,7 +24,7 @@ Google Antigravity
 
 I am normally a Windows desktop user, with some linux server background at work.  Earlier this year, I migrated my antiquated laptop to a Debian distro called MX Linux, and I am experimenting with Linux based workflows -- though still largely through the graphical desktop environment rather than pure CLI.
 
-To this end, I have replaced VSC with Antigravity.  I have disabled all of the AI features (including tab-complete, because it kept trying to write these markdowns for me).  With that in mind, it is functionally equivilant to VSC, as far as I can tell.
+To this end, I have replaced VSC with Antigravity as it seems to be slightly more stable on Linux.  I have disabled all of the AI features (including tab-complete, because it kept trying to write these markdowns for me).  With that in mind, it is functionally equivilant to VSC, as far as I can tell.
 
 ### Local Enviornment
 Google Chrome 150.0.7871.128 (Official Build) (64-bit)
