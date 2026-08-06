@@ -17,7 +17,18 @@ Steps:
 -- event listener
 -- control mapping with actions
 
-The first step is seting up the main() function as the primary game loop and writing "Hello world".  So I do that here
+The first step is seting up the main() function as the primary game loop and writing "Hello world".  So I do that [here](https://github.com/mootootwo/2026rltutorial/commit/508cb384ddca78049084b9c5fd4479185e76836f).
+
+Next, the tutorial imports the tile set, defines the rendering geometry, sets up a listener for an escape event, and draws the `@` symbol.  All right in the main() function.
+
+Since I don't have library functions to do most of that for me, it is a bit of a heavy ask to implement all that right in main().  But, in the spirit of following instructions, I do that [here](). It is okay though, I know we will be moving it in the next step.
+
+A notable difference is that I use setInterval() instead of while(true) as the later tends to blow up most browsers.  Also the escape input handler does work but doesn't really do anything, since it exists outside of the "game loop" for now.
+
+
+
+
+
 
 - 
 
