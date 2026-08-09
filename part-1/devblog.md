@@ -44,4 +44,4 @@ Whoops! The final step is to clear the screen between frames.  Pretty straightfo
 This should be the final code for [Part-1](https://github.com/mootootwo/2026rltutorial/tree/main/part-1) along with a working [demo](https://mootootwo.github.io/2026rltutorial/part-1/demo.html).
 
 ## Demo
-[GitPages](https://mootootwo.github.io/2026rltutorial/)
+[GitPages](https://mootootwo.github.io/2026rltutorial/part-1/demo.html)
