@@ -37,11 +37,11 @@ Oh, the "return" type escape action I described before?  I changed it to a simpl
 
 The tutorial wants to use `else if` statements for handling input, meaning that the handler will stop on the first match.  There are a lot of ways to do this, In school in the 90s I was taught to use `case` statements.  You can profile these to see which is more performant but, in JS, it is a bit browser-specific and also irrevelant at this scale.  I chose to use plain and un-nested `if` statements which may be slightly inefficient on a per-keystroke basis, but my thinking was that it might be better at catching combination key presses.  My thinking was obviously wrong because the events I am listening for are `.onkeydown`.
 
-See this implemented [here]().
+See this implemented [here](https://github.com/mootootwo/2026rltutorial/commit/9f64da8ce4a8a60e800542f75d80b0e268b79d59).
 
 Whoops! The final step is to clear the screen between frames.  Pretty straightforward to fix, just slipping a clearRect() into each refresh interval.
 
-This should be the final code for [Part-1]() along with a working [demo](https://mootootwo.github.io/2026rltutorial/part-1/demo.html).
+This should be the final code for [Part-1](https://github.com/mootootwo/2026rltutorial/tree/main/part-1) along with a working [demo](https://mootootwo.github.io/2026rltutorial/part-1/demo.html).
 
 ## Demo
 [GitPages](https://mootootwo.github.io/2026rltutorial/)

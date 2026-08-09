@@ -82,10 +82,12 @@ function main() {
     }
 
     //main game loop:
-    // draw stuff on the screen
+    // clear the canvas
+    // draw stuff on the canvas
     // update positions of stuff
     // repeat
     function gameLoop() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); //clear canvas each frame
         drawPlayer(playerX, playerY);
         update();
         requestAnimationFrame(gameLoop);
