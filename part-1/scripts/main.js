@@ -3,15 +3,25 @@ controls the primary game loop
 serves as the main entrypoint that calls other functions
 */
 
+import { escapeAction, moveAction } from './actions.js';
+import { listenInput } from './input.js';
+
+
 // main game loop, calls everything else
 function main() {
-    console.log("hello world");
 
     //canvas geometry
     //32x20 is a scaled down 80x50
     const tileSize = 16;  //tile size in pixels
     const xTiles = 32; // width in default tiles
     const yTiles = 20; // height in default tiles
+
+    // initial player position (in tiles) based on screen dimensions
+    let playerX = Math.floor(xTiles / 2);
+    let playerY = Math.floor(yTiles / 2);
+
+    // game loop will run when there are updates
+    let updateNeeded = null;
 
     //font definition
     const fontName = "Wyse700b";
@@ -20,6 +30,8 @@ function main() {
     //load the font
     const gameFont = new FontFace(fontName, "url(" + fontUrl + ")");
 
+    //this async/await needs to be fixed up.. 
+    //rendering starting before font is loaded
     gameFont.load().then(function (font) {
         document.fonts.add(font);
         console.log('Font loaded');
@@ -49,21 +61,41 @@ function main() {
     ctx.font = tileSize + "px " + fontName;
     ctx.textBaseline = "top";
     ctx.imageSmoothingEnabled = false;
-    ctx.scale(scale, scale); // Normalize coordinate system to use CSS pixels, based on device pixel ratio.
+    ctx.scale(scale, scale); // Normalise coordinate system to use CSS pixels, based on device pixel ratio.
 
     ctx.fillStyle = "#ffffff"; // character colour that we will draw with
 
-    //setup the game loop
-    setInterval(ctx.fillText("@", 1, 1), 16); //this is going to print the @ over its self on every 16ms
+    // draw the `@` at player position
+    function drawPlayer(x, y) {
+        ctx.fillText("@", x * tileSize, y * tileSize);
+    }
 
-    //listen for input
-    // this "return" call does not do much here,
-    // it may be used to break out of the main loop later
-    // it could also be the start of an error handler, 
-    // but something would have to be reporting the return values
-    document.querySelector("html").onkeydown = function (e) {
-        if (e.key === "Escape") return;
-    };
+    // check to see if an action is queued,
+    // then update player position
+    function update() {
+        if (moveAction.dx || moveAction.dy) {
+            playerX += moveAction.dx;
+            playerY += moveAction.dy;
+            moveAction.dx = null; // reset queued action when done
+            moveAction.dy = null;
+        }
+    }
+
+    //main game loop:
+    // draw stuff on the screen
+    // update positions of stuff
+    // repeat
+    function gameLoop() {
+        drawPlayer(playerX, playerY);
+        update();
+        requestAnimationFrame(gameLoop);
+    }
+
+    //create input listener
+    listenInput();
+
+    //start the game loop
+    requestAnimationFrame(gameLoop);
 
 }
 
