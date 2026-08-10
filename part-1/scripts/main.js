@@ -20,9 +20,6 @@ function main() {
     let playerX = Math.floor(xTiles / 2);
     let playerY = Math.floor(yTiles / 2);
 
-    // game loop will run when there are updates
-    let updateNeeded = null;
-
     //font definition
     const fontName = "Wyse700b";
     const fontUrl = "fonts/Web437_Wyse700b.woff";
