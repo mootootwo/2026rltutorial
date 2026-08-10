@@ -25,7 +25,7 @@ Part-2 of the [tutorial](https://rogueliketutorials.com/tutorials/tcod/v2/part-2
 
 
 ### How it went
-Shifting the player to the new Entity class was identical to the tutorial, and the first part is [here]().  The only difference is that my draw function took a little more building, since I don't have python's print function waiting to take the colour paramater.
+Shifting the player to the new Entity class was identical to the tutorial, and the first part is [here](https://github.com/mootootwo/2026rltutorial/commit/3a5ca269eb9bdaa5232e8c54ca170bd009e39688).  The only difference is that my draw function took a little more building, since I don't have python's print function waiting to take the colour paramater.
 
 
 
