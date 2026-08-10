@@ -9,9 +9,9 @@ I am a hobbyist and this project is pure bumbling about.
 ## Devlogs
 - [Part-0](https://mootootwo.github.io/2026rltutorial/part-0/devblog) : Setting Up
 - [Part-1](https://mootootwo.github.io/2026rltutorial/part-1/devblog) : Drawing the ‘@’ symbol and moving it around
+- [Part-2](https://mootootwo.github.io/2026rltutorial/part-2) : Generic Entity, render function, and the map
 
 ### Unstarted
->- [Part-2](https://mootootwo.github.io/2026rltutorial/part-2) : Generic Entity, render function, and the map
 >- [Part-3](https://mootootwo.github.io/2026rltutorial/part-3) : Map Generation
 >- [Part-4](https://mootootwo.github.io/2026rltutorial/part-4) : Field of View
 >- [Part-5](https://mootootwo.github.io/2026rltutorial/part-5) : Placing and bumping actiors
@@ -27,3 +27,4 @@ I am a hobbyist and this project is pure bumbling about.
 ## Demos
 - [Part-0](https://mootootwo.github.io/2026rltutorial/part-0/demo.html)
 - [Part-1](https://mootootwo.github.io/2026rltutorial/part-1/demo.html)
+- [Part-2](https://mootootwo.github.io/2026rltutorial/part-2/demo.html)
