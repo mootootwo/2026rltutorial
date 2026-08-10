@@ -14,7 +14,7 @@ I am a hobbyist and this project is pure bumbling about.
 ### Unstarted
 >- [Part-3](https://mootootwo.github.io/2026rltutorial/part-3) : Map Generation
 >- [Part-4](https://mootootwo.github.io/2026rltutorial/part-4) : Field of View
->- [Part-5](https://mootootwo.github.io/2026rltutorial/part-5) : Placing and bumping actiors
+>- [Part-5](https://mootootwo.github.io/2026rltutorial/part-5) : Placing and bumping actors
 >- [Part-6](https://mootootwo.github.io/2026rltutorial/part-6) : Doing and taking damage
 >- [Part-7](https://mootootwo.github.io/2026rltutorial/part-7) : Creating the Interface
 >- [Part-8](https://mootootwo.github.io/2026rltutorial/part-8) : Items and Inventory
