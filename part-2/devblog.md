@@ -37,7 +37,7 @@ Working through the rest of Part-2, I came to unerstand that my way would have m
 
 Ultimately I ended up following the tutorial method, as it will have the added benefit of teaching me some new ways to think about design patterns.
 
-Creating the game map involves some library functions and python features that I don't understand, so I'm doing my best to emulate what I think the intention is.  One difference at this stage, is that I have placed the `render()` function for the game map in `engine.js` with the other drawing and render calls, and have avoided having to pass `ctx` to the game map.  The results of this are [here]().
+Creating the game map involves some library functions and python features that I don't understand, so I'm doing my best to emulate what I think the intention is.  One difference at this stage, is that I have placed the `render()` function for the game map in `engine.js` with the other drawing and render calls, and have avoided having to pass `ctx` to the game map.  The results of this are [here](https://github.com/mootootwo/2026rltutorial/commit/8dd1eca060b8b1abe26bcca47b97000bc69a547b).
 
 
 
