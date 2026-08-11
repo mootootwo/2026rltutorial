@@ -4,9 +4,9 @@ serves as the main entrypoint that calls other functions
 */
 
 import { Display } from './display.js';
-import { escapeAction, moveAction } from './actions.js';
 import { listenInput } from './input.js';
 import { Entity } from './entities.js';
+import { Engine } from './engine.js';
 
 
 // main game loop, calls everything else
@@ -54,39 +54,30 @@ function main() {
     document.body.appendChild(display.canvas); // add dynamically created canvas to the html document
     display.ctx.scale(display.scale, display.scale); // Normalise coordinate system to use CSS pixels, based on device pixel ratio.
 
-    // draw an entity using its properties
-    function drawEnt(x, y, char, color) {
-        display.ctx.fillStyle = color;
-        display.ctx.fillText(char, x * tileSize, y * tileSize);
-    }
+    // create game engine
+    // and send various parts to it
+    let engine = new Engine(
+        entities,
+        player,
 
-    // check to see if an action is queued,
-    // then update player position
-    function update() {
-        if (moveAction.dx || moveAction.dy) {
-            player.move(moveAction.dx, moveAction.dy);
-            moveAction.dx = null; // reset queued action when done
-            moveAction.dy = null;
-        }
-    }
+        //only need width and height
+        //but i think a pointer to .canvas
+        //may be smaller than new paramaters for wid/hei
+        display.canvas,
 
-    //main game loop:
-    // clear the canvas
-    // draw stuff on the canvas
-    // update positions of stuff
-    // repeat
-    function gameLoop() {
-        display.ctx.clearRect(0, 0, display.canvas.width, display.canvas.height); //clear canvas each frame
-        drawEnt(player.x, player.y, player.char, player.color);
-        update();
-        requestAnimationFrame(gameLoop);
-    }
+        display.ctx,
+        tileSize
+    );
 
     //create input listener
+    //tutorial wants this moved to engine,
+    //but importing from input.js to engine.js
+    //then calling engine.listener() 
+    // does not seem to add value
     listenInput();
 
     //start the game loop
-    requestAnimationFrame(gameLoop);
+    requestAnimationFrame(() => engine.gameLoop());
 
 }
 
