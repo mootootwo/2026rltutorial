@@ -3,7 +3,7 @@ controls the primary game loop
 serves as the main entrypoint that calls other functions
 */
 
-import { Canvas } from './canvas.js';
+import { Display } from './display.js';
 import { escapeAction, moveAction } from './actions.js';
 import { listenInput } from './input.js';
 import { Entity } from './entities.js';
@@ -50,14 +50,14 @@ function main() {
         console.log('Font loaded');
     });
 
-    const canvas = new Canvas(fontName, tileSize, xTiles, yTiles);
-    document.body.appendChild(canvas.canvas); // add dynamically created canvas to the html document
-    canvas.ctx.scale(canvas.scale, canvas.scale); // Normalise coordinate system to use CSS pixels, based on device pixel ratio.
+    const display = new Display(fontName, tileSize, xTiles, yTiles);
+    document.body.appendChild(display.canvas); // add dynamically created canvas to the html document
+    display.ctx.scale(display.scale, display.scale); // Normalise coordinate system to use CSS pixels, based on device pixel ratio.
 
     // draw an entity using its properties
     function drawEnt(x, y, char, color) {
-        canvas.ctx.fillStyle = color;
-        canvas.ctx.fillText(char, x * tileSize, y * tileSize);
+        display.ctx.fillStyle = color;
+        display.ctx.fillText(char, x * tileSize, y * tileSize);
     }
 
     // check to see if an action is queued,
@@ -76,7 +76,7 @@ function main() {
     // update positions of stuff
     // repeat
     function gameLoop() {
-        canvas.ctx.clearRect(0, 0, canvas.canvas.width, canvas.canvas.height); //clear canvas each frame
+        display.ctx.clearRect(0, 0, display.canvas.width, display.canvas.height); //clear canvas each frame
         drawEnt(player.x, player.y, player.char, player.color);
         update();
         requestAnimationFrame(gameLoop);

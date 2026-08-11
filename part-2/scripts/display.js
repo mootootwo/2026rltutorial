@@ -2,9 +2,9 @@
 sets up the canvas and rendering context
 */
 
-export { Canvas };
+export { Display };
 
-class Canvas {
+class Display {
     constructor(fontName, /*fontUrl,*/ tileSize, xTiles, yTiles) {
         //this.fontName = fontName;
         //this.fontURL = fontURL;
