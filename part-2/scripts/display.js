@@ -5,13 +5,7 @@ sets up the canvas and rendering context
 export { Display };
 
 class Display {
-    constructor(fontName, /*fontUrl,*/ tileSize, xTiles, yTiles) {
-        //this.fontName = fontName;
-        //this.fontURL = fontURL;
-        //this.tileSize = tileSize; //unused unless we add drawing methods
-        //this.xTiles = xTiles;     //unused unless we add drawing methods
-        //this.yTiles = yTiles;     //unused unless we add drawing methods
-        //this.gameFont = new FontFace(fontName, "url(" + fontUrl + ")");
+    constructor(fontName, tileSize, xTiles, yTiles) {
         this.scale = window.devicePixelRatio; // scaling to devicePixelRation theoretically improves crispness
         // dynamically create a canvas
         // does not attatch it to the html page yet
