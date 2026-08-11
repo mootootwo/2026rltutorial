@@ -31,6 +31,16 @@ Next I move the canvas setup and context creation into a class in `display.js` t
 
 When creating an `Engine` class, I started thinking more about how to improve the game loop so that it can handle escape events and other input.  I also struggled with JS contexts a bit and, with the help of CatPlusPlus from the roguelike Discord, got it sorted out with some arrow functions in the right places.  This step is implemented [here](https://github.com/mootootwo/2026rltutorial/commit/c828954e0c3270fb350c7cfa80463c3a1a6cf554).
 
+When the tutorial describes how the `Tile` class should be created, my first instinct is to make it a child of Entity instead, separating entities into actors and tiles.
+
+Working through the rest of Part-2, I came to unerstand that my way would have made each tile as a unique object that has attributes that can be modified, as if it was a physics object in an immersive sim.  The tutorial's intention is to make all tiles pointers to a single common generic object for their type.
+
+Ultimately I ended up following the tutorial method, as it will have the added benefit of teaching me some new ways to think about design patterns.
+
+Creating the game map involves some library functions and python features that I don't understand, so I'm doing my best to emulate what I think the intention is.  One difference at this stage, is that I have placed the `render()` function for the game map in `engine.js` with the other drawing and render calls, and have avoided having to pass `ctx` to the game map.  The results of this are [here]().
+
+
+
 
 ## Demo
 [GitPages](https://mootootwo.github.io/2026rltutorial/part-2)
