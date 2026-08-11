@@ -27,7 +27,7 @@ Part-2 of the [tutorial](https://rogueliketutorials.com/tutorials/tcod/v2/part-2
 ### How it went
 Shifting the player to the new Entity class was identical to the tutorial, and the first part is [here](https://github.com/mootootwo/2026rltutorial/commit/3a5ca269eb9bdaa5232e8c54ca170bd009e39688).  The only difference is that my draw function took a little more building, since I don't have python's print function waiting to take the colour paramater.
 
-Next I move the canvas setup and context creation into a class in `canvas.js` to help keep `main()` a little more clear.  This will end up looking more like the tutorial, since all the console drawing there is called from library functions external to main.py.  Most of the function calls are still in `main()` but more could probably be moved to the `Canvas` class in the future.
+Next I move the canvas setup and context creation into a class in `display.js` to help keep `main()` a little more clear.  This will end up looking more like the tutorial, since all the console drawing there is called from library functions external to main.py.  Most of the function calls are still in `main()` but more could probably be moved to the `Display` class in the future.
 
 
 
