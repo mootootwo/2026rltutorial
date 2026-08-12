@@ -44,3 +44,6 @@ Creating the game map involves some library functions and python features that I
 
 ## Demo
 [GitPages](https://mootootwo.github.io/2026rltutorial/part-2)
+
+---
+[Part-1](https://mootootwo.github.io/2026rltutorial/part-1/devblog)    [Index](https://mootootwo.github.io/2026rltutorial/readme)    [Part-3](https://mootootwo.github.io/2026rltutorial/part-3/devblog)

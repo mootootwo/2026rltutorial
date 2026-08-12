@@ -36,3 +36,6 @@ My local development sandbox runs on a Busybox server, hosting flat files
 
 ### Hosting
 [GitPages](https://mootootwo.github.io/2026rltutorial/)
+
+---
+[Index](https://mootootwo.github.io/2026rltutorial/readme)    [Part-1](https://mootootwo.github.io/2026rltutorial/part-1/devblog)
