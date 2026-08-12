@@ -9,7 +9,7 @@ I am a hobbyist and this project is pure bumbling about.
 ## Devlogs
 - [Part-0](https://mootootwo.github.io/2026rltutorial/part-0/devblog) : Setting Up
 - [Part-1](https://mootootwo.github.io/2026rltutorial/part-1/devblog) : Drawing the ‘@’ symbol and moving it around
-- [Part-2](https://mootootwo.github.io/2026rltutorial/part-2) : Generic Entity, render function, and the map
+- [Part-2](https://mootootwo.github.io/2026rltutorial/part-2/devblog) : Generic Entity, render function, and the map
 
 ### Unstarted
 >- [Part-3](https://mootootwo.github.io/2026rltutorial/part-3) : Map Generation
