@@ -27,6 +27,8 @@ class Actor extends Entity {
         super(x, y, char, color);
     }
     // allows the entity to move its self
+    // sets desired delta-x and y,
+    // event listener checks this when it triggers
     move(dx, dy) {
         this.x += dx;
         this.y += dy;

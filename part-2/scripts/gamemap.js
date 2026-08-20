@@ -40,7 +40,12 @@ class GameMap {
 
     // returns True if inside the map area
     inBounds(x, y) {
-        return 0 <= x < this.width && 0 <= y < this.height;
+        return (
+            0 <= x &&
+            x < this.width &&
+            0 <= y &&
+            y < this.height
+        );
     }
 
 

@@ -5,7 +5,6 @@ all paramaters should be defined at this level
 */
 
 import { Display } from './display.js';
-import { listenInput } from './input.js';
 import { Actor, Tile } from './entities.js';
 import { Engine } from './engine.js';
 import { GameMap } from './gamemap.js';
@@ -90,13 +89,6 @@ function main() {
         display.ctx,
         tileSize
     );
-
-    //create input listener
-    //tutorial wants this moved to engine,
-    //but importing from input.js to engine.js
-    //then calling engine.listener() 
-    // does not seem to add value
-    listenInput();
 
     //start the game loop
     requestAnimationFrame(() => engine.gameLoop());

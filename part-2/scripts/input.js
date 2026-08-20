@@ -1,23 +1,23 @@
 /* 
-This is the input listener
+This handles input recieved from the listener,
+and calls actions in response
 */
 
-import { escapeAction, moveAction } from './actions.js';
+import { EscapeAction, MoveAction } from './actions.js';
 
-export { listenInput };
+export { InputHandler };
 
-// listens for input and assigns an action from actions.js to each input
-function listenInput() {
+class InputHandler {
 
-    document.querySelector("html").onkeydown = function (e) {
-        // handles orthagonal movement and returns dx,dy as properties of moveAction()
-        if (e.key == "w") moveAction(0, -1);
-        if (e.key == "s") moveAction(0, 1);
-        if (e.key == "a") moveAction(-1, 0);
-        if (e.key == "d") moveAction(1, 0);
+    handleKeyDown(e) {
+        // handles orthagonal movement
+        if (e.key == "w") return new MoveAction(0, -1);
+        if (e.key == "s") return new MoveAction(0, 1);
+        if (e.key == "a") return new MoveAction(-1, 0);
+        if (e.key == "d") return new MoveAction(1, 0);
 
         // listens for an escape and does nothing yet
-        if (e.key === "Escape") escapeAction();
-    };
-}
+        if (e.key === "Escape") EscapeAction.perform();
+    }
 
+}

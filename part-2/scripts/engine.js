@@ -5,38 +5,39 @@ handles player input
 updates and moves entities
 */
 
-import { escapeAction, moveAction } from './actions.js';
+import { InputHandler } from './input.js';
+
 export { Engine };
 
 class Engine {
     constructor(entities, player, map, canvas, ctx, tileSize) {
+        this.inputHandler = new InputHandler;
         this.entities = entities; // list of entities to be drawn
         this.player = player;
         this.map = map;
         this.canvas = canvas;
         this.ctx = ctx;
         this.tileSize = tileSize;
+
+        this.action = null;
+        this.setupListener();
+    }
+
+    setupListener() {
+        window.addEventListener('keydown', (e) => {
+            this.action = this.inputHandler.handleKeyDown(e);      //returns a movement action when key pressed
+        });
+
     }
 
     // check to see if an action is queued,
     // then update player position
     // #private method lets me call it elsewhere inside the class
     #handleEvents() {
-        if (moveAction.dx || moveAction.dy) {
-            let x = this.player.x + moveAction.dx;
-            let y = this.player.y + moveAction.dy;
-            if (this.map.grid[x][y].passable) { // test to see if target square can be moved onto
-                this.player.move(moveAction.dx, moveAction.dy);
-                moveAction.dx = null; // reset queued action when done
-                moveAction.dy = null;
-            }
-        } else if (escapeAction) {
-            // TODO: I think the whole game-loop 
-            // needs to be wrapped in a try/catch
-            // for the escape action to break out of it
-            return; // doesn't do anything yet
+        if (this.action) {
+            this.action.perform(this, this.player);
         }
-    }
+    };
 
     //clears and redraws the canvas each frame
     //steps through entity list and draws each entity
@@ -74,7 +75,7 @@ class Engine {
     // TODO: wrap this in a try/catch so we can use the escape handler
     gameLoop() {
         this.#render()
-        this.#handleEvents();
+        try { this.#handleEvents() } catch (error) { console.log(error) };
         requestAnimationFrame(() => this.gameLoop()); //arrow function rebinds `this`
     };
 
