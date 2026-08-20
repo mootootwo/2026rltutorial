@@ -44,7 +44,7 @@ The problem I run into when turning my action functions into classes and moving 
 I don't want to just copy jarrahtech's implementation, especially since he is doing something with his input listener that I don't totally understand.  I struggled with this for a while and ended up consulting a chatbot for some pointers, and adapted its suggestions to fit into a code in a way that I understand.  This is the [final commit](https://github.com/mootootwo/2026rltutorial/commit/6c2ecaf024a1034774c85edacbdfaab70e0fad0f) of Part-2.
 
 ## Demo
-[GitPages](https://mootootwo.github.io/2026rltutorial/part-2)
+[GitPages](https://mootootwo.github.io/2026rltutorial/part-2/demo.html)
 
 ---
 #### Navigation:    [Part-1](https://mootootwo.github.io/2026rltutorial/part-1/devblog)    ←    [Index](https://mootootwo.github.io/2026rltutorial/readme)    →    [Part-3](https://mootootwo.github.io/2026rltutorial/part-3/devblog)
