@@ -41,7 +41,7 @@ For the final steps of Part-2, the tutorial wants to pass the engine into that `
 
 The problem I run into when turning my action functions into classes and moving them out of `engine.js`, is that my input listener does not match the tutorial design.  I have found a really clean example of how to do this in jarrahtech's [2022 version of this tutorial in JS](https://github.com/jarrahtech/RoguelikeTutorial2022/blob/f3d456c75cdfe5daf13bfac72f6c1820d7d29d09/assets/engine.js)
 
-I don't want to just copy jarrahtech's implementation, especially since he is doing something with his input listener that I don't totally understand.  I struggled with this for a while and ended up consulting a chatbot for some pointers, and adapted its suggestions to fit into a code in a way that I understand.  This is the [final commit]() of Part-2.
+I don't want to just copy jarrahtech's implementation, especially since he is doing something with his input listener that I don't totally understand.  I struggled with this for a while and ended up consulting a chatbot for some pointers, and adapted its suggestions to fit into a code in a way that I understand.  This is the [final commit](https://github.com/mootootwo/2026rltutorial/commit/6c2ecaf024a1034774c85edacbdfaab70e0fad0f) of Part-2.
 
 ## Demo
 [GitPages](https://mootootwo.github.io/2026rltutorial/part-2)
