@@ -30,10 +30,6 @@ class GameMap {
                 grid[i][j] = this.tiles.floor;        // fill with floor tiles
             }
         }
-        //make a little 3-tile wall for testing
-        grid[10][7] = this.tiles.wall;
-        grid[11][7] = this.tiles.wall;
-        grid[12][7] = this.tiles.wall;
 
         return grid;       // return the completed array
     }

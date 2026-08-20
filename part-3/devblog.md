@@ -21,7 +21,7 @@ Part-3 of the [tutorial](https://rogueliketutorials.com/tutorials/tcod/v2/part-3
 
 
 ### How it went
-derp.
+First, a confession:  I do not like Rogue's dungeon layout.  I don't like the 1970s and 80s style D&D dungeon maps that influenced it, either.  So, I won't be carving hollow rooms out to generate this map.  I am still following the tutorial closely, but I will instead create rectangular buildings and connect them with open-air paths.  It is, by most measures, identical.
 
 ## Demo
 [GitPages](https://mootootwo.github.io/2026rltutorial/part-3/demo.html)
