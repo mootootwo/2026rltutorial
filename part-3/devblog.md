@@ -29,7 +29,7 @@ Some time later, I learn that the Pythond `slice()` function is not the same as 
 
 This is my implementation of [creating two rooms](https://github.com/mootootwo/2026rltutorial/commit/7c80e93025d8cd88cd4964b2ab7bf5d79248f227).
 
-[creating a path between rooms]().
+According to the tutorial, this next bit would be a great place to learn how iterator or "yield" functions work.  I didn't do that, and I didn't implement Bresenham Lines.  With that in mind, here is my attempt at [creating a path between rooms]().  I did add a new tile type for the paths, I imagined these would be like paving stones between buildings.
 
 [multiple rooms with random size and location]()
 
