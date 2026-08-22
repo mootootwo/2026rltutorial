@@ -60,7 +60,7 @@ function generateLevel(width, height, tiles) {
     }
 
     // return "L" shaped tunnel between two points
-    // this was supposed to use a yield / iterator function
+    // this was supposed to use a yield / generator function
     // and bresenham lines or similar LoS tracing
     // but I just sort of brute forced it with conditional logic
     // TODO: see if this can be improved
@@ -71,7 +71,7 @@ function generateLevel(width, height, tiles) {
         if (Math.random() < 0.5) {   // 50% chance
             // path horizontal, then vertical
             for (let i = Math.min(x1, x2); i <= Math.max(x1, x2); i++) {    // TODO: move the min/max calc outside the loop
-                level.grid[i][y1] = tiles.path;                             // instead of directly modifying the grid, maybe the output can yield a stream of coords?
+                level.grid[i][y1] = tiles.path;                             // instead of directly modifying the grid, maybe the output can "yield" a stream of coords?
             }
             for (let j = Math.min(y1, y2); j <= Math.max(y1, y2); j++) {
                 level.grid[x2][j] = tiles.path;
