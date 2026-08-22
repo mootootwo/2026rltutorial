@@ -27,7 +27,7 @@ Setting up the rectangular room generator isn't hard, but there are a few things
 
 Some time later, I learn that the Pythond `slice()` function is not the same as an array `.slice` method, at all.
 
-This is my implementation of [creating two rooms]().
+This is my implementation of [creating two rooms](https://github.com/mootootwo/2026rltutorial/commit/7c80e93025d8cd88cd4964b2ab7bf5d79248f227).
 
 [creating a path between rooms]().
 
