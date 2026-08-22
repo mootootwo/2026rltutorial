@@ -7,8 +7,7 @@ all paramaters should be defined at this level
 import { Display } from './display.js';
 import { Actor, Tile } from './entities.js';
 import { Engine } from './engine.js';
-import { GameMap } from './gamemap.js';
-
+import { generateLevel } from './procgen.js';
 
 // main game loop, calls everything else
 function main() {
@@ -72,7 +71,7 @@ function main() {
     let entities = [npc, player];
 
     //create game map
-    let gameMap = new GameMap(xMap, yMap, tiles);
+    let gameMap = generateLevel(xMap, yMap, tiles);
 
     // create game engine
     // and send various parts to it

@@ -8,7 +8,7 @@ Part-3 of the [tutorial](https://rogueliketutorials.com/tutorials/tcod/v2/part-3
 - remove the test wall from part-2
 - create a generator for a rectangular room
     - find the center
-    - return inner slices
+    - return inner slices (Python slices are not array slices!!)
 - add generator to main
 - create tunnel between rooms
     - implement a random function
@@ -22,6 +22,18 @@ Part-3 of the [tutorial](https://rogueliketutorials.com/tutorials/tcod/v2/part-3
 
 ### How it went
 First, a confession:  I do not like Rogue's dungeon layout.  I don't like the 1970s and 80s style D&D dungeon maps that influenced it, either.  So, I won't be carving hollow rooms out to generate this map.  I am still following the tutorial closely, but I will instead create rectangular buildings and connect them with open-air paths.  It is, by most measures, identical.
+
+Setting up the rectangular room generator isn't hard, but there are a few things I don't understand from looking at the Python.  It appears to be taking slices of an array, but I don't see where the array is created.  I assume that I need to create arrays of tiles to represent the rooms, and [maetl](https://github.com/maetl/roguelike-tutorial/commit/78a199e4cdbe9d14cb47fc9d6853563f1ea0ce0d) carries me through with a good example on how to do it.
+
+Some time later, I learn that the Pythond `slice()` function is not the same as an array `.slice` method, at all.
+
+This is my implementation of [creating two rooms]().
+
+[creating a path between rooms]().
+
+[multiple rooms with random size and location]()
+
+
 
 ## Demo
 [GitPages](https://mootootwo.github.io/2026rltutorial/part-3/demo.html)
