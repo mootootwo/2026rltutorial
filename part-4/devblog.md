@@ -15,9 +15,15 @@ Part-4 of the [tutorial](https://rogueliketutorials.com/tutorials/tcod/v2/part-4
 - update the visible part of the map, based on player fov
 
 ### How it went
-The first thing I noticed when reading through the instructions, was that I did not have a `render()` function inside the `GameMap` class, like the tutorial expected.  I think I kept this in the `Engine` class to avoid passing the canvas rendering context (`ctx`) to the map.  I [fixed this and cleaned up some other kruft]() as my first commit.
+The first thing I noticed when reading through the instructions, was that I did not have a `render()` function inside the `GameMap` class, like the tutorial expected.  I think I kept this in the `Engine` class to avoid passing the canvas rendering context (`ctx`) to the map.  I [fixed this and cleaned up some other kruft](https://github.com/mootootwo/2026rltutorial/commit/d71094d4a75e6f0d54f9ff7671473a3e9aefd068) as my first commit.
 
 Then I became upset because the map draws its self but entities do not.  This matches the tutorial behaviour, so I am leaving it alone for now.
+
+Adding the arrays to track "visible" and "explored" status was simple enough.  I adapted the `generateMap()` that creates a 2D array of floor tiles, to also create 2D arrays containg the value "false".  
+
+I am tempted to track this information as properties of the cells on the map -- but it may be more efficient to constrain this to boolean values.  Of course, it isn't, because this is Javascript.  I could go through some gymnastics to use a [bit array](https://github.com/swiing/Bit-TypedArray), or I could use a byte-array with the "new" `Unit8Array` types.  For now though, I just [get on with it]().
+
+
 
 ## Demo
 [GitPages](https://mootootwo.github.io/2026rltutorial/part-4/demo.html)

@@ -10,10 +10,12 @@ class GameMap {
         this.width = width;
         this.height = height;
         this.tiles = tiles;
-        this.grid = this.generateMap();
+        this.grid = this.generateMap(this.tiles.floor);
+        this.visible = [this.generateMap(false)];
+        this.explored = [this.generateMap(false)];
     }
 
-    generateMap() {
+    generateMap(type) {
         let grid = [];
 
         // fill each column (i)
@@ -27,7 +29,7 @@ class GameMap {
                 // TODO: i don't like this because
                 // it preassumes knowledge of the tile types
                 // defined in a higher level function
-                grid[i][j] = this.tiles.floor;        // fill with floor tiles
+                grid[i][j] = type;        // fill with floor tiles
             }
         }
 
