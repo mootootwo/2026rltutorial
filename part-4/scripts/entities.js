@@ -36,12 +36,13 @@ class Actor extends Entity {
 }
 
 class Tile {
-    constructor(char, color, passable, transparent, dark) {
-        this.char = char;
-        this.color = color;
+    constructor(passable, transparent, dark, light) {
+        //this.char = char;
+        //this.color = color;
         this.passable = passable;       //can it be moved onto?
         this.transparent = transparent; //can it be seen through?
         this.dark = dark;               //graphics when outside FoV
+        this.light = light;             //graphics when inside FoV
     }
 }
 

@@ -11,8 +11,8 @@ class GameMap {
         this.height = height;
         this.tiles = tiles;
         this.grid = this.generateMap(this.tiles.floor);
-        this.visible = [this.generateMap(false)];
-        this.explored = [this.generateMap(false)];
+        this.visible = this.generateMap(false);
+        this.explored = this.generateMap(false);
     }
 
     generateMap(type) {
@@ -52,12 +52,30 @@ class GameMap {
     render(ctx, tileSize) {
         for (let i = 0; i < this.grid.length; i++) {        // width, or columns
             for (let j = 0; j < this.grid[i].length; j++) { // length or rows
-                ctx.fillStyle = this.grid[i][j].color;
-                ctx.fillText(
-                    this.grid[i][j].char,
-                    i * tileSize,
-                    j * tileSize
-                );
+                // check if tile is in "visible" array,
+                // then render with "light" graphics
+                if (this.visible[i][j]) {
+                    ctx.fillStyle = this.grid[i][j].light.color;
+                    ctx.fillText(
+                        this.grid[i][j].light.char,
+                        i * tileSize,
+                        j * tileSize
+                    );
+                } else if (this.explored[i][j]) {
+                    ctx.fillStyle = this.grid[i][j].dark.color;
+                    ctx.fillText(
+                        this.grid[i][j].dark.char,
+                        i * tileSize,
+                        j * tileSize
+                    );
+                } else {
+                    ctx.fillStyle = this.tiles.shroud.color;
+                    ctx.fillText(
+                        this.tiles.shroud.char,
+                        i * tileSize,
+                        j * tileSize
+                    );
+                }
             }
         }
     }

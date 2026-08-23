@@ -62,17 +62,24 @@ function main() {
     // define all tile types that will be sent to the map generator
     const tiles = {
         floor: new Tile(
-            "∙", "#555555",
-            true, true, { char: " ", color: "#000000" }
+            true,
+            true,
+            { char: " ", color: "#000000" },
+            { char: "∙", color: "#555555" },
         ),
         wall: new Tile(
-            "#", "#aaaaaa",
-            false, false, { char: "#", color: "#444466" }
+            false,
+            false,
+            { char: "#", color: "#444466" },
+            { char: "#", color: "#aaaaaa" },
         ),
         path: new Tile(
-            "■", "#555555",
-            true, true, { char: "■", color: "#222244" }
-        )
+            true,
+            true,
+            { char: "■", color: "#222244" },
+            { char: "■", color: "#555555" },
+        ),
+        shroud: { char: "○", color: "#222244" }
     };
 
     // array of all entities

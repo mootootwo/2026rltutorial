@@ -23,6 +23,11 @@ Adding the arrays to track "visible" and "explored" status was simple enough.  I
 
 I am tempted to track this information as properties of the cells on the map -- but it may be more efficient to constrain this to boolean values.  Of course, it isn't, because this is Javascript.  I could go through some gymnastics to use a [bit array](https://github.com/swiing/Bit-TypedArray), or I could use a byte-array with the "new" `Unit8Array` types.  For now though, I just [get on with it](https://github.com/mootootwo/2026rltutorial/commit/5b122c44cba0c959d67bb052ab6b91b2c7d37c1e).
 
+I think I must have misunderstood something in Part-1, because I was already sending graphics information for light and dark tiles to the `Tile` class constructor.  I cleaned this up to present it in the way the tutorial requests, here in Part-4.  I am still keeping the data for instantiating the tile types in `main()` because -- in my imagination -- I am maintaining some separation of data and logic.  I'm not sure if this is happening in reality.
+
+I don't have `npselect()` so I just iterate though the arrays and compare the grid of tiles to the visible and explored 2d arrays.
+
+It is all working in [this commit](), where I have a placeholder graphic for `shroud` to make it visually recognizeable, and the `visible[]` and `explored[]` arrays can be toggled to true or false when they are instantiated so that each display type can be verified.
 
 
 ## Demo
