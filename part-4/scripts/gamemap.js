@@ -44,5 +44,21 @@ class GameMap {
         );
     }
 
+    // draws the map to the canvas,
+    // using the provided rendering context
+    // this could just live in engine.js
+    render(ctx, tileSize) {
+        for (let i = 0; i < this.grid.length; i++) {        // width, or columns
+            for (let j = 0; j < this.grid[i].length; j++) { // length or rows
+                ctx.fillStyle = this.grid[i][j].color;
+                ctx.fillText(
+                    this.grid[i][j].char,
+                    i * tileSize,
+                    j * tileSize
+                );
+            }
+        }
+    }
+
 
 }

@@ -23,8 +23,8 @@ function main() {
     const yMap = 15; // reserve 5 tiles from total canvas size
 
     //map features
-    const maxRooms = 10;
-    const minRoomSize = 6;
+    const maxRooms = 10;    //mostly represents how long to retry after failing to place rooms
+    const minRoomSize = 6;  //outer footprint of room, including buffer
     const maxRoomSize = 9;
 
     //font definition
@@ -47,8 +47,6 @@ function main() {
 
     // create player entity
     let player = new Actor(
-        //Math.floor(xTiles / 2), //position (in tiles) based on canvas dimensions
-        //Math.floor(yTiles / 2),
         null,   // x,y coords set during level creation
         null,
         "@",

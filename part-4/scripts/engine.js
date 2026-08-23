@@ -46,16 +46,7 @@ class Engine {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height); //clear canvas each frame
 
         // draw the map
-        for (let i = 0; i < this.map.grid.length; i++) {        // width, or columns
-            for (let j = 0; j < this.map.grid[i].length; j++) { // length or rows
-                this.ctx.fillStyle = this.map.grid[i][j].color;
-                this.ctx.fillText(
-                    this.map.grid[i][j].char,
-                    i * this.tileSize,
-                    j * this.tileSize
-                );
-            }
-        }
+        this.map.render(this.ctx, this.tileSize);
 
         // draw each actor
         for (let i = 0; i < this.entities.length; i++) {
@@ -67,7 +58,6 @@ class Engine {
             );
         }
     }
-
 
     //this is the main game loop
     //the tutorial's code waits on actions to be queued

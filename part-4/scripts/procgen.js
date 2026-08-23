@@ -48,13 +48,6 @@ class RectRoom {
 // creates a new map from gamemap.js
 // fills it with features (rooms, paths)
 // returns populated map
-/*
-function generateLevel(width, height, tiles) {
-    const level = new GameMap(width, height, tiles);
-
-    const room1 = new RectRoom(10, 1, 5, 7);
-    const room2 = new RectRoom(17, 5, 5, 7);
-*/
 function generateLevel(
     maxRooms,
     minRoomSize,
@@ -111,15 +104,6 @@ function generateLevel(
         }
     }
 
-    /*
-    let c1 = room1.center();
-    let c2 = room2.center();
-
-    placeRoom(room1);
-    placeRoom(room2);
-    pathBetween(c1.x, c2.x, c1.y, c2.y);
-    */
-
     // creates RectRooms
     // checks for overlap
     // and fills rooms[] with them 
@@ -136,7 +120,6 @@ function generateLevel(
         // adds the first room to the list of rooms
         if (level.rooms.length === 0) {
             level.rooms.push(newRoom);
-            //newRoom, x, y = null;
         } else {
             // tests to see if the new room intersects any existing rooms
             let j = 0;
@@ -149,7 +132,6 @@ function generateLevel(
             // ran through without finding intersections
             if (j === level.rooms.length) {
                 level.rooms.push(newRoom);     // add room to array
-                //newRoom, x, y, j = null;
             }
         }
     };
