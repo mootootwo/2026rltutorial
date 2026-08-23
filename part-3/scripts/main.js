@@ -22,6 +22,11 @@ function main() {
     const xMap = 32;
     const yMap = 15; // reserve 5 tiles from total canvas size
 
+    //map features
+    const maxRooms = 10;
+    const minRoomSize = 6;
+    const maxRoomSize = 9;
+
     //font definition
     const fontName = "Wyse700b";
     const fontUrl = "fonts/Web437_Wyse700b.woff";
@@ -42,8 +47,10 @@ function main() {
 
     // create player entity
     let player = new Actor(
-        Math.floor(xTiles / 2), //position (in tiles) based on canvas dimensions
-        Math.floor(yTiles / 2),
+        //Math.floor(xTiles / 2), //position (in tiles) based on canvas dimensions
+        //Math.floor(yTiles / 2),
+        null,   // x,y coords set during level creation
+        null,
         "@",
         "#ffffff"
     );
@@ -75,7 +82,15 @@ function main() {
     let entities = [npc, player];
 
     //create game map
-    let gameMap = generateLevel(xMap, yMap, tiles);
+    let gameMap = generateLevel(
+        maxRooms,
+        minRoomSize,
+        maxRoomSize,
+        xMap,
+        yMap,
+        tiles,
+        player
+    );
 
     // create game engine
     // and send various parts to it

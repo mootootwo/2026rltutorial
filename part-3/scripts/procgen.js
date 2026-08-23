@@ -3,6 +3,7 @@ This is the procedural generator used for the map
 */
 
 import { GameMap } from "./gamemap.js";
+import { randomRange } from "./utility.js";
 export { generateLevel };
 
 // generates a rectangular room
@@ -11,8 +12,8 @@ class RectRoom {
     constructor(x, y, width, height) {
         this.x1 = x;
         this.y1 = y;
-        this.x2 = x + width;
-        this.y2 = y + height;
+        this.x2 = x + width - 1;
+        this.y2 = y + height - 1;
     }
 
     // returns the centerpoint of the room
@@ -32,16 +33,39 @@ class RectRoom {
             y2: (this.y2 - 1)
         }
     }
+
+    // returns TRUE if the room overlaps another room
+    intersects(other) {
+        return (
+            this.x1 <= other.x2 &&
+            this.x2 >= other.x1 &&
+            this.y1 <= other.y2 &&
+            this.y2 >= other.y1
+        )
+    }
 }
 
 // creates a new map from gamemap.js
 // fills it with features (rooms, paths)
 // returns populated map
+/*
 function generateLevel(width, height, tiles) {
     const level = new GameMap(width, height, tiles);
 
     const room1 = new RectRoom(10, 1, 5, 7);
     const room2 = new RectRoom(17, 5, 5, 7);
+*/
+function generateLevel(
+    maxRooms,
+    minRoomSize,
+    maxRoomSize,
+    width,
+    height,
+    tiles,
+    player
+) {
+    const level = new GameMap(width, height, tiles);
+    level.rooms = [];
 
     // draw walls around the inner portion of a room
     function placeRoom(room) {
@@ -87,12 +111,64 @@ function generateLevel(width, height, tiles) {
         }
     }
 
+    /*
     let c1 = room1.center();
     let c2 = room2.center();
 
     placeRoom(room1);
     placeRoom(room2);
     pathBetween(c1.x, c2.x, c1.y, c2.y);
+    */
+
+    // creates RectRooms
+    // checks for overlap
+    // and fills rooms[] with them 
+    for (let i = 0; i < maxRooms; i++) {
+        const rWidth = randomRange(minRoomSize, maxRoomSize);
+        const rHeight = randomRange(minRoomSize, maxRoomSize);
+
+        let x = randomRange(0, width - rWidth - 1);
+        let y = randomRange(0, height - rHeight - 1);
+
+        // define coords for a potential room
+        let newRoom = new RectRoom(x, y, rWidth, rHeight);
+
+        // adds the first room to the list of rooms
+        if (level.rooms.length === 0) {
+            level.rooms.push(newRoom);
+            //newRoom, x, y = null;
+        } else {
+            // tests to see if the new room intersects any existing rooms
+            let j = 0;
+            for (; j < level.rooms.length; j++) {
+                if (level.rooms[j].intersects(newRoom)) {
+                    break;
+                }
+            }
+            // only if the above loop
+            // ran through without finding intersections
+            if (j === level.rooms.length) {
+                level.rooms.push(newRoom);     // add room to array
+                //newRoom, x, y, j = null;
+            }
+        }
+    };
+
+    // place all rooms
+    for (let i = 0; i < level.rooms.length; i++) {
+        placeRoom(level.rooms[i]);
+    };
+    // make paths between rooms
+    for (let i = 0; i < level.rooms.length; i++) {
+        let c1 = level.rooms[i].center();
+        let c2 = level.rooms.at(i - 1).center();
+        pathBetween(c1.x, c2.x, c1.y, c2.y);
+    };
+
+    const c0 = level.rooms[0].center();
+    player.x = c0.x;
+    player.y = c0.y;
+
     return level;
 }
 

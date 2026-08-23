@@ -33,9 +33,13 @@ According to the tutorial, this next bit would be a great place to learn how gen
 
 Refreshing the page at this point will have the path alternate between horizontal-first and vertical-first path drawing, as the tutorial intended.  I offset the test rooms so this would be visible, unlike in the tutorial example.  This is my attempt at [creating a path between rooms](https://github.com/mootootwo/2026rltutorial/commit/8ec9ce9187161b8b9ab49f273850e9567401b517).  
 
-[multiple rooms with random size and location]()
+The final step of Part-3 is to rewrite the level generator to randomize room size, quantity, and position.  I need to create a new `randomRange()` function in `utility.js` as there is no native way in JS to generate a number in a specific interger range, and I am able to follow the tutorial mostly as designed.
 
+There are two minor differences in my approach:  First, I continue using the sub-functions I created previously to place rooms and path between them, instead of rewriting them into a more monolithic block.  Second, I create the array of rooms before performing operations on it (e.g., placing them, pathing between them, and locating the player).
 
+I think the tutorial's approach is probably more performant, as it reduces the number of times the array needs to be accessed.  But I am able to more easily read and follow the code when each step is separate.
+
+The final change in my implementation of [multiple rooms with random size and location]() is cosmetic: I connect the first and last rooms to each other with paths, instead of leaving them as stubs.
 
 ## Demo
 [GitPages](https://mootootwo.github.io/2026rltutorial/part-3/demo.html)
