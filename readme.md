@@ -11,18 +11,18 @@ I am a hobbyist and this project is pure bumbling about.
 - [Part-1](https://mootootwo.github.io/2026rltutorial/part-1/devblog) : Drawing the ‘@’ symbol and moving it around
 - [Part-2](https://mootootwo.github.io/2026rltutorial/part-2/devblog) : Generic Entity, render function, and the map
 - [Part-3](https://mootootwo.github.io/2026rltutorial/part-3/devblog) : Map Generation
+- [Part-4](https://mootootwo.github.io/2026rltutorial/part-4/devblog) : Field of View
 
 ### Unstarted
->- [Part-4](https://mootootwo.github.io/2026rltutorial/part-4) : Field of View
->- [Part-5](https://mootootwo.github.io/2026rltutorial/part-5) : Placing and bumping actors
->- [Part-6](https://mootootwo.github.io/2026rltutorial/part-6) : Doing and taking damage
->- [Part-7](https://mootootwo.github.io/2026rltutorial/part-7) : Creating the Interface
->- [Part-8](https://mootootwo.github.io/2026rltutorial/part-8) : Items and Inventory
->- [Part-9](https://mootootwo.github.io/2026rltutorial/part-9) : Ranged Scrolls and Targeting
->- [Part-10](https://mootootwo.github.io/2026rltutorial/part-10) : Saving and loading
->- [Part-11](https://mootootwo.github.io/2026rltutorial/part-11) : Delving into the Dungeon
->- [Part-12](https://mootootwo.github.io/2026rltutorial/part-12) : Increasing Difficulty
->- [Part-13](https://mootootwo.github.io/2026rltutorial/part-13) : Gearing up 
+>- [Part-5](https://mootootwo.github.io/2026rltutorial/part-5/devblog) : Placing and bumping actors
+>- [Part-6](https://mootootwo.github.io/2026rltutorial/part-6/devblog) : Doing and taking damage
+>- [Part-7](https://mootootwo.github.io/2026rltutorial/part-7/devblog) : Creating the Interface
+>- [Part-8](https://mootootwo.github.io/2026rltutorial/part-8/devblog) : Items and Inventory
+>- [Part-9](https://mootootwo.github.io/2026rltutorial/part-9/devblog) : Ranged Scrolls and Targeting
+>- [Part-10](https://mootootwo.github.io/2026rltutorial/part-10/devblog) : Saving and loading
+>- [Part-11](https://mootootwo.github.io/2026rltutorial/part-11/devblog) : Delving into the Dungeon
+>- [Part-12](https://mootootwo.github.io/2026rltutorial/part-12/devblog) : Increasing Difficulty
+>- [Part-13](https://mootootwo.github.io/2026rltutorial/part-13/devblog) : Gearing up 
 
 ## Demos
 - [Part-0](https://mootootwo.github.io/2026rltutorial/part-0/demo.html)
