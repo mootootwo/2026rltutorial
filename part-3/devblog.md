@@ -39,7 +39,7 @@ There are two minor differences in my approach:  First, I continue using the sub
 
 I think the tutorial's approach is probably more performant, as it reduces the number of times the array needs to be accessed.  But I am able to more easily read and follow the code when each step is separate.
 
-The final change in my implementation of [multiple rooms with random size and location]() is cosmetic: I connect the first and last rooms to each other with paths, instead of leaving them as stubs.
+The final change in my implementation of [multiple rooms with random size and location](https://github.com/mootootwo/2026rltutorial/commit/939f2a80182d26de3960dc3a1a74a18bf439239e) is cosmetic: I connect the first and last rooms to each other with paths, instead of leaving them as stubs.
 
 ## Demo
 [GitPages](https://mootootwo.github.io/2026rltutorial/part-3/demo.html)
