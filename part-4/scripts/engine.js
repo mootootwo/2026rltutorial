@@ -74,7 +74,7 @@ class Engine {
                 return;
             };
         };
-        try { this.map.refreshFOV(this.player.x, this.player.y, 8) } catch { console.error("refreshFOV error") };
+        try { this.map.refreshFOV(this.player.x, this.player.y, 8) } catch { console.log("refreshFOV error") };
         requestAnimationFrame(() => this.gameLoop()); //arrow function rebinds `this`
     };
 
