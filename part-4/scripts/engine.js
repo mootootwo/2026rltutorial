@@ -62,7 +62,6 @@ class Engine {
     //this is the main game loop
     //the tutorial's code waits on actions to be queued
     //this just calls requestanimationframe() for ticks
-    // TODO: wrap this in a try/catch so we can use the escape handler
     gameLoop() {
         this.#render()
         try {
@@ -74,7 +73,11 @@ class Engine {
                 return;
             };
         };
-        try { this.map.refreshFOV(this.player.x, this.player.y, 8) } catch { console.log("refreshFOV error") };
+        try {
+            this.map.refreshVisibility(this.player.x, this.player.y, 8)
+        } catch {
+            console.log("refreshFOV error")         //.error() messages don't stack, so using .log() to avoid spam
+        };
         requestAnimationFrame(() => this.gameLoop()); //arrow function rebinds `this`
     };
 
