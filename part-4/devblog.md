@@ -49,7 +49,7 @@ Performance issues:
 
 The problems I faced included actions being repeated (e.g. multiple move actions) when attempting to process FOV per action.  Halting errors from FOV updates, requiring me to improve my try/catch error handling (and continuing).  And, the most visible remaining one, the FOV algorithm seeing through opaque tiles (at certain ranges and angles) and interpreting vision range differently when on different parts of the map.
 
-I think it is stable enough to continue, so this is the [final commit of Part-4]().
+I think it is stable enough to continue, so this is the [final commit of Part-4](https://github.com/mootootwo/2026rltutorial/commit/64991bf91ec9e80ff2c51c9d0d091d0286e42e63).
 
 ## Demo
 [GitPages](https://mootootwo.github.io/2026rltutorial/part-4/demo.html)

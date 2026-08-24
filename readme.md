@@ -12,9 +12,9 @@ I am a hobbyist and this project is pure bumbling about.
 - [Part-2](https://mootootwo.github.io/2026rltutorial/part-2/devblog) : Generic Entity, render function, and the map
 - [Part-3](https://mootootwo.github.io/2026rltutorial/part-3/devblog) : Map Generation
 - [Part-4](https://mootootwo.github.io/2026rltutorial/part-4/devblog) : Field of View
+- [Part-5](https://mootootwo.github.io/2026rltutorial/part-5/devblog) : Placing and bumping actors
 
 ### Unstarted
->- [Part-5](https://mootootwo.github.io/2026rltutorial/part-5/devblog) : Placing and bumping actors
 >- [Part-6](https://mootootwo.github.io/2026rltutorial/part-6/devblog) : Doing and taking damage
 >- [Part-7](https://mootootwo.github.io/2026rltutorial/part-7/devblog) : Creating the Interface
 >- [Part-8](https://mootootwo.github.io/2026rltutorial/part-8/devblog) : Items and Inventory
