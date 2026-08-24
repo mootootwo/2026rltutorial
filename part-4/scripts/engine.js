@@ -65,7 +65,16 @@ class Engine {
     // TODO: wrap this in a try/catch so we can use the escape handler
     gameLoop() {
         this.#render()
-        try { this.#handleEvents() } catch (error) { console.log(error) };
+        try {
+            this.#handleEvents()
+        } catch (error) {
+            console.log(error)
+            if (error === "escape pressed") {
+                console.error("exiting gameLoop()")
+                return;
+            };
+        };
+        try { this.map.refreshFOV(this.player.x, this.player.y, 8) } catch { console.error("refreshFOV error") };
         requestAnimationFrame(() => this.gameLoop()); //arrow function rebinds `this`
     };
 

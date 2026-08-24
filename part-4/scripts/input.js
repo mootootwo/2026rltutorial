@@ -17,7 +17,7 @@ class InputHandler {
         if (e.key == "d") return new MoveAction(1, 0);
 
         // listens for an escape and does nothing yet
-        if (e.key === "Escape") EscapeAction.perform();
+        if (e.key === "Escape") return new EscapeAction;
     }
 
 }

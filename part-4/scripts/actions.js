@@ -18,12 +18,8 @@ class Action {
 // should it inherit from Action?  
 // should Action have the entity property?
 class EscapeAction extends Action {
-    // TODO: still need to fix this up
-    // to break the game loop
-    // and return or throw an error
-    static perform() {
-        console.log("escape pressed");
-        //throw "escape";                   //need a catch for this
+    perform() {
+        throw "escape pressed";
     }
 }
 
@@ -40,16 +36,14 @@ class MoveAction extends Action {
         let y = entity.y + this.dy;
 
         if (!engine.map.inBounds(x, y)) {
-            //console.log(x + ", " + y + " out of bounds");
             engine.action = null; // reset queued action
             throw x + ", " + y + " out of bounds";
         } else if (!engine.map.grid[x][y].passable) {
-            //console.log(x + ", " + y + " not passable");
             engine.action = null; // reset queued action
             throw x + ", " + y + " not passable";
         } else {
-            entity.move(this.dx, this.dy);
-            engine.action = null; // reset queued action when done
+            entity.move(this.dx, this.dy);                      // move the entity
+            engine.action = null;                               // reset queued action when done
         }
     }
 }
