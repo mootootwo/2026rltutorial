@@ -24,7 +24,11 @@ Part-5 of the [tutorial](https://rogueliketutorials.com/tutorials/tcod/v2/part-5
 - add NPC actor turn handler to game loop
 
 ### How it went
-The initial refactor is moving `entities[]` from the engine to the gameMap, including the function that renders them.  [Simple enough]().
+The initial refactor is moving `entities[]` from the engine to the gameMap, including the function that renders them.  [Simple enough](https://github.com/mootootwo/2026rltutorial/commit/7077d405ef075696880d90c59ad4d148870badb3).
+
+To patch up one of the many problems I left from [Part-4](https://mootootwo.github.io/2026rltutorial/part-4/devblog), I moved Field of View creation into the movement action processing so that it does not update every frame.  I also added a one-time FOV creation `main.js` so that the player can see things at the game start, before they first move.  This small patch is [here](https://github.com/mootootwo/2026rltutorial/commit/62c8277ceac3696fda9ea78ca00212a4fe8159ac).
+
+
 
 ## Demo
 [GitPages](https://mootootwo.github.io/2026rltutorial/part-5/demo.html)
