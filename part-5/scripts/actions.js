@@ -44,6 +44,17 @@ class MoveAction extends Action {
         } else {
             entity.move(this.dx, this.dy);                      // move the entity
             engine.action = null;                               // reset queued action when done
+
+            // placing FOV refresh in movement action,
+            // so it only happens when the player moves
+            // will need to not update for NPCs, 
+            // once other entities start acting
+            try {
+                engine.map.refreshVisibility(entity.x, entity.y, 8)
+            } catch {
+                console.log("refreshFOV error")         //.error() messages don't stack, so using .log() to avoid spam
+            };
+
         }
     }
 }

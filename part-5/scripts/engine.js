@@ -63,11 +63,6 @@ class Engine {
                 return;
             };
         };
-        try {
-            this.map.refreshVisibility(this.player.x, this.player.y, 8)
-        } catch {
-            console.log("refreshFOV error")         //.error() messages don't stack, so using .log() to avoid spam
-        };
         requestAnimationFrame(() => this.gameLoop()); //arrow function rebinds `this`
     };
 

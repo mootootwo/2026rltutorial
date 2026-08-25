@@ -95,6 +95,10 @@ function main() {
         player
     );
 
+    // one-time FOV creation
+    // so we can see things before the player first moves
+    gameMap.refreshFOV(player.x, player.y, 8)   // remove hard coded vision range
+
     // create game engine
     // and send various parts to it
     let engine = new Engine(
