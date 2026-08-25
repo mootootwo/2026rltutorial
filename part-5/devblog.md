@@ -24,7 +24,7 @@ Part-5 of the [tutorial](https://rogueliketutorials.com/tutorials/tcod/v2/part-5
 - add NPC actor turn handler to game loop
 
 ### How it went
-derp.
+The initial refactor is moving `entities[]` from the engine to the gameMap, including the function that renders them.  [Simple enough]().
 
 ## Demo
 [GitPages](https://mootootwo.github.io/2026rltutorial/part-5/demo.html)

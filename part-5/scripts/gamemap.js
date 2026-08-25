@@ -10,13 +10,14 @@ import { createFOV } from "./fov.js";
 export { GameMap };
 
 class GameMap {
-    constructor(width, height, tiles) {
+    constructor(width, height, tiles, entities) {
         this.width = width;
         this.height = height;
         this.tiles = tiles;
         this.grid = this.generateMap(this.tiles.floor);
         this.visible = this.generateMap(false);
         this.explored = this.generateMap(false);
+        this.entities = entities;
         this.refreshFOV = createFOV(
             this.width,
             this.height,
@@ -116,5 +117,22 @@ class GameMap {
                 }
             }
         }
+
+        // cycle through all entities
+        // check to see if they are on a visible tile
+        // if so, draw them
+        for (let i = 0; i < this.entities.length; i++) {
+            if (this.visible[this.entities[i].x][this.entities[i].y]) {
+                ctx.fillStyle = this.entities[i].color;
+                ctx.fillText(
+                    this.entities[i].char,
+                    this.entities[i].x * tileSize,
+                    this.entities[i].y * tileSize
+                );
+            }
+
+        }
+
+
     }
 }

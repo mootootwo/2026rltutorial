@@ -57,7 +57,10 @@ function generateLevel(
     tiles,
     player
 ) {
-    const level = new GameMap(width, height, tiles);
+    // array of all entities
+    // for rendering and acting order
+    let entities = [player];
+    const level = new GameMap(width, height, tiles, entities);
     level.rooms = [];
 
     // draw walls around the inner portion of a room

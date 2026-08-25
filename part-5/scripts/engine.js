@@ -10,9 +10,8 @@ import { InputHandler } from './input.js';
 export { Engine };
 
 class Engine {
-    constructor(entities, player, map, canvas, ctx, tileSize) {
+    constructor(player, map, canvas, ctx, tileSize) {
         this.inputHandler = new InputHandler;
-        this.entities = entities; // list of entities to be drawn
         this.player = player;
         this.map = map;
         this.canvas = canvas;
@@ -48,15 +47,6 @@ class Engine {
         // draw the map
         this.map.render(this.ctx, this.tileSize);
 
-        // draw each actor
-        for (let i = 0; i < this.entities.length; i++) {
-            this.ctx.fillStyle = this.entities[i].color;
-            this.ctx.fillText(
-                this.entities[i].char,
-                this.entities[i].x * this.tileSize,
-                this.entities[i].y * this.tileSize
-            );
-        }
     }
 
     //this is the main game loop

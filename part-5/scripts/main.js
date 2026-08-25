@@ -52,6 +52,7 @@ function main() {
         "@",
         "#ffffff"
     );
+    /*
     // create npc entity
     let npc = new Actor(
         Math.floor(xTiles / 2 - 5), //position (in tiles) based on canvas dimensions
@@ -59,6 +60,7 @@ function main() {
         "@",
         "#ff00ff"
     );
+    */
     // define all tile types that will be sent to the map generator
     const tiles = {
         floor: new Tile(
@@ -82,10 +84,6 @@ function main() {
         shroud: { char: "○", color: "#222244" }
     };
 
-    // array of all entities
-    // for rendering and acting order
-    let entities = [npc, player];
-
     //create game map
     let gameMap = generateLevel(
         maxRooms,
@@ -100,7 +98,6 @@ function main() {
     // create game engine
     // and send various parts to it
     let engine = new Engine(
-        entities,
         player,
         gameMap,
 
