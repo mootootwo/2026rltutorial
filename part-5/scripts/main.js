@@ -97,8 +97,11 @@ function main() {
 
     // one-time FOV creation
     // so we can see things before the player first moves
-    gameMap.refreshFOV(player.x, player.y, 8)   // remove hard coded vision range
-
+    try {
+        gameMap.refreshFOV(player.x, player.y, 8)   // remove hard coded vision range
+    } catch {
+        console.log("refreshFOV error")         //.error() messages don't stack, so using .log() to avoid spam
+    };
     // create game engine
     // and send various parts to it
     let engine = new Engine(
