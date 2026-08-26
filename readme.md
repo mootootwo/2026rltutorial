@@ -13,9 +13,9 @@ I am a hobbyist and this project is pure bumbling about.
 - [Part-3](https://mootootwo.github.io/2026rltutorial/part-3/devblog) : Map Generation
 - [Part-4](https://mootootwo.github.io/2026rltutorial/part-4/devblog) : Field of View
 - [Part-5](https://mootootwo.github.io/2026rltutorial/part-5/devblog) : Placing and bumping actors
+- [Part-6](https://mootootwo.github.io/2026rltutorial/part-6/devblog) : Doing and taking damage
 
 ### Unstarted
->- [Part-6](https://mootootwo.github.io/2026rltutorial/part-6/devblog) : Doing and taking damage
 >- [Part-7](https://mootootwo.github.io/2026rltutorial/part-7/devblog) : Creating the Interface
 >- [Part-8](https://mootootwo.github.io/2026rltutorial/part-8/devblog) : Items and Inventory
 >- [Part-9](https://mootootwo.github.io/2026rltutorial/part-9/devblog) : Ranged Scrolls and Targeting
@@ -29,3 +29,6 @@ I am a hobbyist and this project is pure bumbling about.
 - [Part-1](https://mootootwo.github.io/2026rltutorial/part-1/demo.html)
 - [Part-2](https://mootootwo.github.io/2026rltutorial/part-2/demo.html)
 - [Part-3](https://mootootwo.github.io/2026rltutorial/part-3/demo.html)
+- [Part-4](https://mootootwo.github.io/2026rltutorial/part-4/demo.html)
+- [Part-5](https://mootootwo.github.io/2026rltutorial/part-5/demo.html)
+- [Part-6](https://mootootwo.github.io/2026rltutorial/part-6/demo.html)
