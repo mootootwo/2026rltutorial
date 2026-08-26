@@ -45,10 +45,10 @@ class BumpAction extends DirectionAction {
         // if there is a blocking entity in the destination square
         // try boop it.  If not, move there.
         if (engine.map.getBlockingEntity(x, y)) {
-            engine.action = null;
+            //engine.action = null;
             return new BoopAction(this.dx, this.dy);
         } else {
-            engine.action = null;
+            //engine.action = null;
             return new MoveAction(this.dx, this.dy);
         }
     }
@@ -61,7 +61,7 @@ class BoopAction extends DirectionAction {
         let y = entity.y + this.dy;
         let target = engine.map.getBlockingEntity(x, y);
         if (!target) {
-            engine.action = null; // reset queued action
+            //engine.action = null; // reset queued action
             throw "No entity to boop at " + x + ", " + y;
         }
         console.log("You boop " + target.name + " at " + x + ", " + y);
@@ -90,7 +90,7 @@ class MoveAction extends DirectionAction {
             throw x + ", " + y + " blocked by entity " + engine.map.getBlockingEntity(x, y).name;
         } else {
             entity.move(this.dx, this.dy);                      // move the entity
-            engine.action = null;                               // reset queued action when done
+            //engine.action = null;                               // reset queued action when done
 
             // placing FOV refresh in movement action,
             // so it only happens when the player moves

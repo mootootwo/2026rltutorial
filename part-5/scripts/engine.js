@@ -33,15 +33,12 @@ class Engine {
     // then update player position
     // #private method lets me call it elsewhere inside the class
     #handleEvents() {
-        /* //this is my original event loop
+        // solution from Red Blob Games
+        // handles child-actions created by BumpAction
+        // not all action types need to be reset with engine.action=null
+        // booping or successful movement are cleared by action.perform being unassigned
         if (this.action) {
-            this.action.perform(this, this.player);
-        }
-        */
-
-        while (this.action) {
-            const nextAction = this.action.perform(this, this.player);
-            this.action = nextAction;
+            this.action = this.action.perform(this, this.player);
         }
 
     };
