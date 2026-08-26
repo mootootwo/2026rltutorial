@@ -44,7 +44,7 @@ The final step in Part-5 is to put in a placeholder for handling NPC turns.  Ano
 
 Placing it in the game loop would have them trying to act with each screen refresh.  Placing them with the FOV refresh would have them acting only when the player moves to a new square.
 
-I end up putting calls to `handleNpcActions()` after both successful `MoveAction` and `BoopActions`.  This feels like super cringe slop, and I hope to improve it with a better game loop or action queue.  Anyway, [here it is]().
+I end up putting calls to `handleNpcActions()` after both successful `MoveAction` and `BoopActions`.  This feels like super cringe slop, and I hope to improve it with a better game loop or action queue.  Anyway, [here it is](https://github.com/mootootwo/2026rltutorial/commit/5e221629fd17b27d68f901043c9182dc64bdc5b9).
 
 ## Demo
 [GitPages](https://mootootwo.github.io/2026rltutorial/part-5/demo.html)
