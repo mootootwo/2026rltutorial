@@ -7,9 +7,19 @@ Tiles are handled as a different sort of concept.
 
 export { Actor, Tile };
 
-//
+// Entities are currently === actors
+// could include other objects
 class Entity {
-    constructor(x, y, char, color) {
+    // assigning default values to constructor
+    // these should never be used, but may highlight errors
+    constructor(
+        x = 0,
+        y = 0,
+        char = "?",
+        color = "#ffffff",
+        name = "default",
+        blocksMovement = false
+    ) {
         this.x = x;
         this.y = y;
 
@@ -19,12 +29,27 @@ class Entity {
         // and in the .dark property
         this.char = char;    //character to be drawn
         this.color = color;  //colour of character
+
+        this.name = name;
+        this.blocksMovement = blocksMovement;
     }
+
+    // creates a clone of an entity instanced from this class
+    // usually from entityfactories.js
+    spawn(gameMap, x, y) {
+        const clone = structuredClone(this);
+        Object.setPrototypeOf(clone, Actor.prototype);      // structured clone loses class inheritance
+        clone.x = x;
+        clone.y = y;
+        gameMap.entities.push(clone);
+        //return clone;     // not sure why the tutorial asks for this, seems to not be needed
+    }
+
 }
 
 class Actor extends Entity {
-    constructor(x, y, char, color) {
-        super(x, y, char, color);
+    constructor(x, y, char, color, name, blocksMovement) {
+        super(x, y, char, color, name, blocksMovement);
     }
     // allows the entity to move its self
     // sets desired delta-x and y,
@@ -35,6 +60,8 @@ class Actor extends Entity {
     }
 }
 
+// these are terrain tiles
+// currently non-interactable
 class Tile {
     constructor(passable, transparent, dark, light) {
         this.passable = passable;       //can it be moved onto?
@@ -43,4 +70,3 @@ class Tile {
         this.light = light;             //graphics when inside FoV
     }
 }
-

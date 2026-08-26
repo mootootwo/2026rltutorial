@@ -5,7 +5,8 @@ all paramaters should be defined at this level
 */
 
 import { Display } from './display.js';
-import { Actor, Tile } from './entities.js';
+import { Tile, Actor } from './entities.js';
+import { player as playerTemplate } from './entityfactories.js';
 import { Engine } from './engine.js';
 import { generateLevel } from './procgen.js';
 
@@ -23,9 +24,11 @@ function main() {
     const yMap = 15; // reserve 5 tiles from total canvas size
 
     //map features
-    const maxRooms = 10;    //mostly represents how long to retry after failing to place rooms
+    const maxRooms = 15;    //mostly represents how long to retry after failing to place rooms
     const minRoomSize = 6;  //outer footprint of room, including buffer
-    const maxRoomSize = 9;
+    const maxRoomSize = 8;
+    const maxNpcPerRoom = 2;
+
 
     //font definition
     const fontName = "Wyse700b";
@@ -46,21 +49,11 @@ function main() {
     display.ctx.scale(display.scale, display.scale); // Normalise coordinate system to use CSS pixels, based on device pixel ratio.
 
     // create player entity
-    let player = new Actor(
-        null,   // x,y coords set during level creation
-        null,
-        "@",
-        "#ffffff"
-    );
-    /*
-    // create npc entity
-    let npc = new Actor(
-        Math.floor(xTiles / 2 - 5), //position (in tiles) based on canvas dimensions
-        Math.floor(yTiles / 2),
-        "@",
-        "#ff00ff"
-    );
-    */
+    // need to rebind player to the Actor class
+    // due to how structuredClones work in JS
+    const player = structuredClone(playerTemplate);
+    Object.setPrototypeOf(player, Actor.prototype);
+
     // define all tile types that will be sent to the map generator
     const tiles = {
         floor: new Tile(
@@ -89,6 +82,7 @@ function main() {
         maxRooms,
         minRoomSize,
         maxRoomSize,
+        maxNpcPerRoom,
         xMap,
         yMap,
         tiles,

@@ -4,6 +4,13 @@ This is the procedural generator used for the map
 
 import { GameMap } from "./gamemap.js";
 import { randomRange } from "./utility.js";
+
+// importing data / plain objects / literals into this module
+// makes me very unhappy
+// TODO: I feel like all data should be read into main() 
+// as the primary entrypoint
+import { bigU, lilU } from "./entityfactories.js"
+
 export { generateLevel };
 
 // generates a rectangular room
@@ -52,6 +59,7 @@ function generateLevel(
     maxRooms,
     minRoomSize,
     maxRoomSize,
+    maxNpcPerRoom,
     width,
     height,
     tiles,
@@ -88,7 +96,7 @@ function generateLevel(
         //endpoint 1 = x1, y1
         //endpoint 2 = x2, y2
 
-        if (Math.random() < 0.5) {   // 50% chance
+        if (Math.random() < 0.5) {   // 50% chance  TODO: replace math.random()
             // path horizontal, then vertical
             for (let i = Math.min(x1, x2); i <= Math.max(x1, x2); i++) {    // TODO: move the min/max calc outside the loop
                 level.grid[i][y1] = tiles.path;                             // instead of directly modifying the grid, maybe the output can "yield" a stream of coords?
@@ -103,6 +111,38 @@ function generateLevel(
             }
             for (let i = Math.min(x1, x2); i <= Math.max(x1, x2); i++) {
                 level.grid[i][y2] = tiles.path;
+            }
+        }
+    }
+
+    // place entities in a room
+    function placeEntities(room, level, maxNpcPerRoom) {
+        const totalNpc = randomRange(0, maxNpcPerRoom);
+
+        // place NPC entities in the room
+        for (let i = 0; i < totalNpc; i++) {
+            // pick a location inside the rooms walls
+            const x = randomRange(room.x1 + 2, room.x2 - 2);
+            const y = randomRange(room.y1 + 2, room.y2 - 2);
+
+            // make sure the coords for the new entity
+            // do not overlap with an existing one
+            for (let j = 0; j < entities.length; j++) {
+                // if the new entity overlaps an existing one
+                // exit this itteration of the loop
+                if (entities[j].x === x && entities[j].y === y) {
+                    break;
+                    // else add a new entity of random type
+                } else {
+                    if (Math.random() < 0.8) {  // TODO: replace Math.random()
+                        // place TYPE A npc
+                        bigU.spawn(level, x, y)
+                    } else {
+                        // place TYPE B npc
+                        lilU.spawn(level, x, y)
+                    }
+
+                }
             }
         }
     }
@@ -134,7 +174,9 @@ function generateLevel(
             // only if the above loop
             // ran through without finding intersections
             if (j === level.rooms.length) {
-                level.rooms.push(newRoom);     // add room to array
+
+                placeEntities(newRoom, level, maxNpcPerRoom);    // add NPCs to room
+                level.rooms.push(newRoom);                       // add room to array
             }
         }
     };

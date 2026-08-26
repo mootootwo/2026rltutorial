@@ -28,6 +28,11 @@ The initial refactor is moving `entities[]` from the engine to the gameMap, incl
 
 To patch up one of the many problems I left from [Part-4](https://mootootwo.github.io/2026rltutorial/part-4/devblog), I moved Field of View creation into the movement action processing so that it does not update every frame.  I also added a one-time FOV creation `main.js` so that the player can see things at the game start, before they first move.  This small patch is [here](https://github.com/mootootwo/2026rltutorial/commit/62c8277ceac3696fda9ea78ca00212a4fe8159ac).
 
+Some interesting bits from the next step:
+- The tutorial introduces default values for class constructors.  In JS, these will need `undefined` to be passed to the constructor, but I guess I will see what the tutorial has planned.
+- We add a `spawn()` method to entities, so they can add themselves into the entity list and be placed on the map.  The tutorial uses something in Python called "deepcopy" for adding a clone of an object.
+
+The tutorial has us using a deep copy (Python `copy.deepcopy()` which I replace with JS `structuredClone()` and `Object.setPrototypeOf()`) of instantiated "plain objects" or "literals".  I don't like the idea of defining data outside of my primary entrypoint in `main()` but, in the spirit of following the tutorial, I do it anyway.  This updated method of creating actors can be seen [here]().
 
 
 ## Demo
