@@ -127,23 +127,27 @@ function generateLevel(
 
             // make sure the coords for the new entity
             // do not overlap with an existing one
+            let isOverlapping = false;
             for (let j = 0; j < entities.length; j++) {
                 // if the new entity overlaps an existing one
                 // exit this itteration of the loop
                 if (entities[j].x === x && entities[j].y === y) {
+                    isOverlapping = true;
                     break;
-                    // else add a new entity of random type
-                } else {
-                    if (Math.random() < 0.8) {  // TODO: replace Math.random()
-                        // place TYPE A npc
-                        bigU.spawn(level, x, y)
-                    } else {
-                        // place TYPE B npc
-                        lilU.spawn(level, x, y)
-                    }
-
                 }
             }
+            if (!isOverlapping) {
+                if (Math.random() < 0.8) {  // TODO: replace Math.random()
+                    // place TYPE A npc
+                    bigU.spawn(level, x, y)
+                } else {
+                    // place TYPE B npc
+                    lilU.spawn(level, x, y)
+                }
+            } else {
+                i--;  // retry this iteration of the loop
+            }
+
         }
     }
 
