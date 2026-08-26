@@ -54,7 +54,20 @@ class GameMap {
         );
     }
 
-    // it seems like "isPassable" belongs here as a "getter"
+    // check to see if the tile holds an entity that blocks movement
+    // if so, return the blocking entity
+    getBlockingEntity(x, y) {
+        for (let i = 0; i < this.entities.length; i++) {
+            if (
+                this.entities[i].blocksMovement === true &&
+                this.entities[i].x === x &&
+                this.entities[i].y === y
+            ) {
+                return this.entities[i];
+            }
+        }
+        //return     //the tutorial wants a blank return here, I dont think this does anything in JS
+    }
 
     // check if the tile can be seen-through
     // inverting logic to preserve compatability with my imported FOV function
