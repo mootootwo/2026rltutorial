@@ -2,7 +2,7 @@
 These are actions that can be assigned to inputs
 */
 
-export { Action, EscapeAction, MoveAction };
+export { EscapeAction, BumpAction };
 
 class Action {
 
@@ -23,6 +23,7 @@ class EscapeAction extends Action {
     }
 }
 
+// This action is created from a direction key being pressed
 class DirectionAction extends Action {
     constructor(dx, dy) {
         super();            // i don't understand how they empty list picks up from the parent
@@ -35,6 +36,39 @@ class DirectionAction extends Action {
     }
 }
 
+// this determines if an action should move or interact
+class BumpAction extends DirectionAction {
+    perform(engine, entity) {
+        let x = entity.x + this.dx;
+        let y = entity.y + this.dy;
+
+        // if there is a blocking entity in the destination square
+        // try boop it.  If not, move there.
+        if (engine.map.getBlockingEntity(x, y)) {
+            engine.action = null;
+            return new BoopAction(this.dx, this.dy);
+        } else {
+            engine.action = null;
+            return new MoveAction(this.dx, this.dy);
+        }
+    }
+}
+
+// boops or interacts with another entity
+class BoopAction extends DirectionAction {
+    perform(engine, entity) {
+        let x = entity.x + this.dx;
+        let y = entity.y + this.dy;
+        let target = engine.map.getBlockingEntity(x, y);
+        if (!target) {
+            engine.action = null; // reset queued action
+            throw "No entity to boop at " + x + ", " + y;
+        }
+        console.log("You boop " + target.name + " at " + x + ", " + y);
+    }
+}
+
+// moves the actor in the direction indicated
 class MoveAction extends DirectionAction {
     // I don't understand how MoveAction picks up dx, dy 
     // from DirectionAction without constructor() and super()

@@ -33,9 +33,17 @@ class Engine {
     // then update player position
     // #private method lets me call it elsewhere inside the class
     #handleEvents() {
+        /* //this is my original event loop
         if (this.action) {
             this.action.perform(this, this.player);
         }
+        */
+
+        while (this.action) {
+            const nextAction = this.action.perform(this, this.player);
+            this.action = nextAction;
+        }
+
     };
 
     //clears and redraws the canvas each frame

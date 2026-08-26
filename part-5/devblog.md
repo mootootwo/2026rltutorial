@@ -32,8 +32,13 @@ Some interesting bits from the next step:
 - The tutorial introduces default values for class constructors.  In JS, these will need `undefined` to be passed to the constructor, but I guess I will see what the tutorial has planned.
 - We add a `spawn()` method to entities, so they can add themselves into the entity list and be placed on the map.  The tutorial uses something in Python called "deepcopy" for adding a clone of an object.
 
-The tutorial has us using a deep copy (Python `copy.deepcopy()` which I replace with JS `structuredClone()` and `Object.setPrototypeOf()`) of instantiated "plain objects" or "literals".  I don't like the idea of defining data outside of my primary entrypoint in `main()` but, in the spirit of following the tutorial, I do it anyway.  This updated method of creating actors can be seen [here]().
+The tutorial has us using a deep copy (Python `copy.deepcopy()` which I replace with JS `structuredClone()` and `Object.setPrototypeOf()`) of instantiated "plain objects" or "literals".  I don't like the idea of defining data outside of my primary entrypoint in `main()` but, in the spirit of following the tutorial, I do it anyway.  This updated method of creating actors can be seen [here](https://github.com/mootootwo/2026rltutorial/commit/32142b491af97f46c6bbce0a47298a0c8e1ba556).
 
+Letting us bump other entities seems straight forward, but first I need to [fix a problem with entity placement](https://github.com/mootootwo/2026rltutorial/commit/d140f4d252100f9c6f926a51c22dc31343ae1762) that allowed entities to be placed on overlapping tiles, and the total placed entities to exceed the max per room.  Then implementing the [check for blocking entities](https://github.com/mootootwo/2026rltutorial/commit/4741105172307c02cc215623eb8e9db4dc74d61a) is simple.
+
+I am a little confused by the next steps in the tutorial where we enable interaction with other entities (attack actions, in the tutorial.)  It has "bump actions" as a child of "direction actions", and these "bump actions" then decide if the correct action is a move or attack.  I'm not sure why the tutorial goes through the extra step; should the decision not be made in the "direction action"?  
+
+I really don't see what value the intermediary "bump action" adds, but I [implement it here]().  I did have a bit of trouble getting my `#handleEvents()` loop to recognize second-level actions instanced by `BumpAction`, and the updated version of the game loop is based on a suggestion from a chatbot.
 
 ## Demo
 [GitPages](https://mootootwo.github.io/2026rltutorial/part-5/demo.html)
