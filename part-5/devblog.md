@@ -38,7 +38,7 @@ Letting us bump other entities seems straight forward, but first I need to [fix 
 
 I am a little confused by the next steps in the tutorial where we enable interaction with other entities (attack actions, in the tutorial.)  It has "bump actions" as a child of "direction actions", and these "bump actions" then decide if the correct action is a move or attack.  I'm not sure why the tutorial goes through the extra step; should the decision not be made in the "direction action"?  
 
-I really don't see what value the intermediary "bump action" adds, but I [implement it here](https://github.com/mootootwo/2026rltutorial/commit/d25c0f084577eb5ecf531dfcceb1754822ed2c4c).  I did have a bit of trouble getting my `#handleEvents()` loop to recognize second-level actions instanced by `BumpAction`, and the updated version of the game loop is based on a suggestion from a chatbot. [This commit]() improves the solution based on some feedback from Red Blob Games.
+I really don't see what value the intermediary "bump action" adds, but I [implement it here](https://github.com/mootootwo/2026rltutorial/commit/d25c0f084577eb5ecf531dfcceb1754822ed2c4c).  I did have a bit of trouble getting my `#handleEvents()` loop to recognize second-level actions instanced by `BumpAction`, and the updated version of the game loop is based on a suggestion from a chatbot. [This commit](https://github.com/mootootwo/2026rltutorial/commit/b19d58c69672162fd2314ae0d98f6676e378d5de) improves the solution based on some feedback from Red Blob Games.
 
 ## Demo
 [GitPages](https://mootootwo.github.io/2026rltutorial/part-5/demo.html)
