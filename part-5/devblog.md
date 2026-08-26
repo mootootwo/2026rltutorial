@@ -38,7 +38,13 @@ Letting us bump other entities seems straight forward, but first I need to [fix 
 
 I am a little confused by the next steps in the tutorial where we enable interaction with other entities (attack actions, in the tutorial.)  It has "bump actions" as a child of "direction actions", and these "bump actions" then decide if the correct action is a move or attack.  I'm not sure why the tutorial goes through the extra step; should the decision not be made in the "direction action"?  
 
-I really don't see what value the intermediary "bump action" adds, but I [implement it here](https://github.com/mootootwo/2026rltutorial/commit/d25c0f084577eb5ecf531dfcceb1754822ed2c4c).  I did have a bit of trouble getting my `#handleEvents()` loop to recognize second-level actions instanced by `BumpAction`, and the updated version of the game loop is based on a suggestion from a chatbot. [This commit](https://github.com/mootootwo/2026rltutorial/commit/b19d58c69672162fd2314ae0d98f6676e378d5de) improves the solution based on some feedback from Red Blob Games.
+I really don't see what value the intermediary "bump action" adds, but I [implement it here](https://github.com/mootootwo/2026rltutorial/commit/d25c0f084577eb5ecf531dfcceb1754822ed2c4c).  I did have a bit of trouble getting my `#handleEvents()` loop to recognize second-level actions instanced by `BumpAction`, and the updated version of the game loop is based on a suggestion from a chatbot. [The following commit](https://github.com/mootootwo/2026rltutorial/commit/b19d58c69672162fd2314ae0d98f6676e378d5de) improves the solution based on some feedback from Red Blob Games.
+
+The final step in Part-5 is to put in a placeholder for handling NPC turns.  Another simple step in the tutorial that I have an unnecessarily difficult time with.  Since I don't have a proper action queue, it is hard to find a place for NPC actions to live.
+
+Placing it in the game loop would have them trying to act with each screen refresh.  Placing them with the FOV refresh would have them acting only when the player moves to a new square.
+
+I end up putting calls to `handleNpcActions()` after both successful `MoveAction` and `BoopActions`.  This feels like super cringe slop, and I hope to improve it with a better game loop or action queue.  Anyway, [here it is]().
 
 ## Demo
 [GitPages](https://mootootwo.github.io/2026rltutorial/part-5/demo.html)

@@ -40,8 +40,18 @@ class Engine {
         if (this.action) {
             this.action = this.action.perform(this, this.player);
         }
-
     };
+
+    // give each non-player actor the opportunity to act
+    // can't be #private because it is called by player actions
+    // TODO: improve gameloop / action queue to be more serial / synchronous
+    handleNpcActions() {
+        // loop through values in entities list
+        // start at 1 because 0 should always be the player
+        for (let i = 1; i < this.map.entities.length; i++) {
+            console.log(this.map.entities[i].name + " wonders when it will get to act");
+        }
+    }
 
     //clears and redraws the canvas each frame
     //steps through entity list and draws each entity

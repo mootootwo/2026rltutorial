@@ -65,6 +65,7 @@ class BoopAction extends DirectionAction {
             throw "No entity to boop at " + x + ", " + y;
         }
         console.log("You boop " + target.name + " at " + x + ", " + y);
+        engine.handleNpcActions();
     }
 }
 
@@ -101,6 +102,7 @@ class MoveAction extends DirectionAction {
             } catch {
                 console.log("refreshFOV error")         //.error() messages don't stack, so using .log() to avoid spam
             };
+            engine.handleNpcActions();
 
         }
     }
