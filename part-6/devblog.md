@@ -46,7 +46,7 @@ Part-6 also starts with a large refactor.
 - Use the figher component to swap to the game over event handler on death
 
 ### How it went
-derp
+The first thing I do is [fix the typo]() that was breaking the shadowcasting implementation.
 
 ## Demo
 [GitPages](https://mootootwo.github.io/2026rltutorial/part-6/demo.html)

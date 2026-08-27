@@ -73,7 +73,7 @@ class GameMap {
     // inverting logic to preserve compatability with my imported FOV function
     // TODO: make consistent
     isOpaque(x, y) {
-        return !this.grid[y][x].transparent;
+        return !this.grid[x][y].transparent;
     }
 
     // if the tile is in the "visible" array, it should be in the field of view
