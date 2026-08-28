@@ -7,10 +7,12 @@ need to understand this better
 */
 
 import { createFOV } from "./fov.js";
+
 export { GameMap };
 
 class GameMap {
-    constructor(width, height, tiles, entities) {
+    constructor(engine, width, height, tiles, entities) {
+        this.engine = engine;
         this.width = width;
         this.height = height;
         this.tiles = tiles;
@@ -100,7 +102,6 @@ class GameMap {
 
     // draws the map to the canvas,
     // using the provided rendering context
-    // this could just live in engine.js
     render(ctx, tileSize) {
         for (let i = 0; i < this.grid.length; i++) {        // width, or columns
             for (let j = 0; j < this.grid[i].length; j++) { // length or rows

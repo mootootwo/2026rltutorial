@@ -29,7 +29,6 @@ function main() {
     const maxRoomSize = 8;
     const maxNpcPerRoom = 2;
 
-
     //font definition
     const fontName = "Wyse700b";
     const fontUrl = "fonts/Web437_Wyse700b.woff";
@@ -77,8 +76,22 @@ function main() {
         shroud: { char: "○", color: "#222244" }
     };
 
+    // create game engine
+    // and send various parts to it
+    const engine = new Engine(
+        player,
+
+        //only need width and height
+        //but i think a pointer to .canvas
+        //may be smaller than new paramaters for width/height?
+        display.canvas,
+
+        display.ctx,
+        tileSize
+    );
+
     //create game map
-    let gameMap = generateLevel(
+    engine.map = generateLevel(
         maxRooms,
         minRoomSize,
         maxRoomSize,
@@ -86,30 +99,16 @@ function main() {
         xMap,
         yMap,
         tiles,
-        player
+        engine
     );
 
     // one-time FOV creation
     // so we can see things before the player first moves
     try {
-        gameMap.refreshFOV(player.x, player.y, 8)   // remove hard coded vision range
+        engine.map.refreshFOV(player.x, player.y, 8)   // remove hard coded vision range
     } catch {
         console.log("refreshFOV error")         //.error() messages don't stack, so using .log() to avoid spam
     };
-    // create game engine
-    // and send various parts to it
-    let engine = new Engine(
-        player,
-        gameMap,
-
-        //only need width and height
-        //but i think a pointer to .canvas
-        //may be smaller than new paramaters for width/height
-        display.canvas,
-
-        display.ctx,
-        tileSize
-    );
 
     //start the game loop
     requestAnimationFrame(() => engine.gameLoop());

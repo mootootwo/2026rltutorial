@@ -63,12 +63,14 @@ function generateLevel(
     width,
     height,
     tiles,
-    player
+    engine
 ) {
+    const player = engine.player;
+
     // array of all entities
     // for rendering and acting order
-    let entities = [player];
-    const level = new GameMap(width, height, tiles, entities);
+    const entities = [];
+    const level = new GameMap(engine, width, height, tiles, entities);
     level.rooms = [];
 
     // draw walls around the inner portion of a room
@@ -165,8 +167,11 @@ function generateLevel(
         let newRoom = new RectRoom(x, y, rWidth, rHeight);
 
         // adds the first room to the list of rooms
+        // and add the player at the center of it
         if (level.rooms.length === 0) {
+            const c0 = newRoom.center();
             level.rooms.push(newRoom);
+            player.place(c0.x, c0.y, level)
         } else {
             // tests to see if the new room intersects any existing rooms
             let j = 0;
@@ -195,10 +200,6 @@ function generateLevel(
         let c2 = level.rooms.at(i - 1).center();
         pathBetween(c1.x, c2.x, c1.y, c2.y);
     };
-
-    const c0 = level.rooms[0].center();
-    player.x = c0.x;
-    player.y = c0.y;
 
     return level;
 }

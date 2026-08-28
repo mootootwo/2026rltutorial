@@ -10,10 +10,10 @@ import { InputHandler } from './input.js';
 export { Engine };
 
 class Engine {
-    constructor(player, map, canvas, ctx, tileSize) {
-        this.inputHandler = new InputHandler;
+    constructor(player, canvas, ctx, tileSize) {
+        this.inputHandler = new InputHandler(this);
         this.player = player;
-        this.map = map;
+        this.map = null;
         this.canvas = canvas;
         this.ctx = ctx;
         this.tileSize = tileSize;

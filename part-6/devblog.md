@@ -12,14 +12,14 @@ Part-6 also starts with a large refactor.
     - game map to have reference to engine
     - entities to have reference to map
     - actions initialised with entity doing the action
-    - actions can reverence engine through entity -> map -> engine
+    - actions can reference engine through entity -> map -> engine
 - Create components
     - base component
     - fighter
     - hitpoint property
     - getters and setters
 - Create AI (replacing `tcod.path.SimpleGraph` and `.Pathfinder`)
-- Attatch AI and fighter components to entities
+- Attach AI and fighter components to entities
 - Write class for AI users with conditional behaviour
     - wait while out of LOS
     - attack when adjacent
@@ -46,7 +46,12 @@ Part-6 also starts with a large refactor.
 - Use the figher component to swap to the game over event handler on death
 
 ### How it went
-The first thing I do is [fix the typo]() that was breaking the shadowcasting implementation.
+The first thing I do is [fix the typo](https://github.com/mootootwo/2026rltutorial/commit/fd010037cb9e2954d7df21b4e27d50c3cfd407c9) that was breaking the shadowcasting implementation.
+
+During the refactor, I'm unhappy about a couple of things.  First, that I still don't have a proper event or action queue and I need to work around that not existing.  Next that all of the other JS Roguelike Tutorial projects I have been referencing are solidly doing their own thing at this point, and I have no hints from them about this refactor.
+
+The part of the refactor that I couldn't translate into this project, was moving the event handler out of `Engine` and into `main()`.  So the `#handleEvents()` private method and the FOV refresh are still in the engine.  It took a lot of troubleshooting to iron out the problems, but this is the [complete refactor]().
+
 
 ## Demo
 [GitPages](https://mootootwo.github.io/2026rltutorial/part-6/demo.html)

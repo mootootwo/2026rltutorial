@@ -13,6 +13,7 @@ class Entity {
     // assigning default values to constructor
     // these should never be used, but may highlight errors
     constructor(
+        gameMap = null,
         x = 0,
         y = 0,
         char = "?",
@@ -32,6 +33,13 @@ class Entity {
 
         this.name = name;
         this.blocksMovement = blocksMovement;
+
+        // add entity to gamemap entities[] list
+        // only if gamemap has been provided
+        if (gameMap) {
+            this.gameMap = gameMap;
+            gameMap.entities.add(this);
+        }
     }
 
     // creates a clone of an entity instanced from this class
@@ -41,15 +49,38 @@ class Entity {
         Object.setPrototypeOf(clone, Actor.prototype);      // structured clone loses class inheritance
         clone.x = x;
         clone.y = y;
+        clone.gameMap = gameMap;
         gameMap.entities.push(clone);
         //return clone;     // not sure why the tutorial asks for this, seems to not be needed
     }
 
+    // place this entity at a new location, without cloning
+    // allows being placed on different gamemap
+    place(x, y, gameMap) {
+        this.x = x;
+        this.y = y
+
+        // if a gamemap is provided,
+        // remove current gamemap reference
+        // add new gamemap reference
+        if (gameMap) {
+            // remove existing gameMap reference, if there is one
+            if (this.gameMap) {
+                //TODO: it might be better to replace this array with a set
+                const i = this.gameMap.entities.indexOf(this);
+                if (i !== -1) {
+                    this.gameMap.entities.splice(i, 1);
+                }
+            }
+            this.gameMap = gameMap;
+            gameMap.entities.push(this);
+        }
+    }
 }
 
 class Actor extends Entity {
-    constructor(x, y, char, color, name, blocksMovement) {
-        super(x, y, char, color, name, blocksMovement);
+    constructor(gameMap, x, y, char, color, name, blocksMovement) {
+        super(gameMap, x, y, char, color, name, blocksMovement);
     }
     // allows the entity to move its self
     // sets desired delta-x and y,
